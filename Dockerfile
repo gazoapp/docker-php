@@ -12,4 +12,4 @@ VOLUME /data
 
 EXPOSE 80
 
-CMD ["apache2", "-d", "FOREGROUND"]
+CMD ["apache2-foreground"]
