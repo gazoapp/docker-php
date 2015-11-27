@@ -1,6 +1,6 @@
 FROM php:5.6-apache
 
-RUN rm -rf /data/www/html && mkdir -p /data/www/html && chown -R www-data:www-data /data/www/html
+RUN rm -rf /data/www/public && mkdir -p /data/www/public && chown -R www-data:www-data /data/www/public
 
 COPY config/application.conf /etc/apache2/conf-enabled/application.conf
 
