@@ -7,6 +7,9 @@ COPY config/application.conf /etc/apache2/conf-enabled/application.conf
 RUN a2enmod rewrite
 RUN docker-php-ext-install pdo pdo_mysql
 
+RUN apt-get install -y libicu-dev
+RUN docker-php-ext-install intl
+
 RUN mkdir -p /data
 VOLUME /data
 
