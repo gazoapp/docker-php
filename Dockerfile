@@ -5,7 +5,7 @@ RUN rm -rf /data/www/public && mkdir -p /data/www/public && chown -R www-data:ww
 COPY config/application.conf /etc/apache2/conf-enabled/application.conf
 
 RUN a2enmod rewrite
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install intl pdo pdo_mysql
 
 RUN mkdir -p /data
 VOLUME /data
