@@ -1,14 +1,13 @@
 FROM php:5.6-apache
 
+RUN apt-get update && apt-get install -y libicu-dev
+
 RUN rm -rf /data/www/public && mkdir -p /data/www/public && chown -R www-data:www-data /data/www/public
 
 COPY config/application.conf /etc/apache2/conf-enabled/application.conf
 
 RUN a2enmod rewrite
-RUN docker-php-ext-install pdo pdo_mysql
-
-RUN apt-get install -y libicu-dev
-RUN docker-php-ext-install intl
+RUN docker-php-ext-install intl pdo pdo_mysql
 
 RUN mkdir -p /data
 VOLUME /data
